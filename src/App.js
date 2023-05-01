@@ -15,6 +15,7 @@ const App = () => {
   const min = 1;
   const max = 6;
   const maxRank = 10000;
+  const initialBalance = 25000.00;
   const paused = "paused";
   const running = "running";
   const errors = {
@@ -48,14 +49,17 @@ const App = () => {
         setProgress({...progress, rank: "ouro", value: 0});
       }
     },
+    // ouro
+    // diamente
+    // esmeralda
   }
 
   const [cube01, setCube01] = useState(cube);
   const [cube02, setCube02] = useState(cube);
   const [match, setMatch] = useState(false);
 
-  const [balance, setBalance] = useState(25000.00);
   const [historic, setHistoric] = useState([]);
+  const [balance, setBalance] = useState(initialBalance);
   const [progress, setProgress] = useState(initialRank);
   const [statistics, setStatistics] = useState(faces);
 
@@ -108,11 +112,11 @@ const App = () => {
     if (progress.value) {
       localStorage.setItem("matchCubes_ranks", JSON.stringify(progress));
     }
-  }, [progress.value]);
+  }, [progress, progress.value]);
 
   useEffect(() => {
     ranks?.[progress.rank]?.(progress.value);
-  }, [progress]);
+  }, [ranks, progress]);
 
   useEffect(() => {
     if (value && bet && value <= balance) {
@@ -120,7 +124,7 @@ const App = () => {
     } else {
       setStartDisabled(true);
     }
-  }, [value, bet]);
+  }, [balance, value, bet]);
 
   useEffect(() => {
     const mult = value * 0.02;
