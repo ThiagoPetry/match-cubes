@@ -18,6 +18,10 @@
   border-radius: 1vh;
 }
 
+body {
+  background-color: #0f1923;
+}
+
 progress {
   width: 100%;
 	border: 0;
@@ -123,12 +127,6 @@ input:disabled {
   opacity: 1;
 }
 
-#container {
-  width: 100vw;
-  height: 100vh;
-  background-color: #0f1923;
-}
-
 #header {
   height: 60px;
   padding: 5px 30px 5px 30px;
@@ -188,6 +186,7 @@ input:disabled {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0 0 50px 0;
 }
 
 #game {
