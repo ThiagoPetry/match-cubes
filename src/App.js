@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+import { ToastContainer } from "react-toastify";
+
+import { errorNotify } from "./hooks/SystemToasts";
+
 import { maskCurrency } from "./utils/maskCurrency";
+import { currencyMask } from "./utils/currencyMask";
 import { getRandomInt } from "./utils/getRandomInt";
 import { transformLeft, transformRigth } from "./utils/transform";
 
@@ -11,41 +16,17 @@ import Historic from "./components/Game/Historic/Historic.js";
 import Controller from "./components/Game/Controller/Controller.js";
 import Statistics from "./components/Game/Statistics/Statistics.js";
 
+import config from "./config.json";
+
 const App = () => {
-  const min = 1;
-  const max = 6;
-  const maxRank = 10000;
-  const initialBalance = 25000.00;
-  const paused = "paused";
-  const running = "running";
-  const errors = {
-    1: "Valor maior que o saldo disponível.",
-  };
-  const cube = {
-    element: undefined,
-    random: undefined,
-  };
-  const faces = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-  };
-  const initialRank = {
-    rank: "bronze",
-    level: 1,
-    value: 0,
-  };
   const ranks = {
     bronze(value) {
-      if (value >= maxRank) {
+      if (value >= config.maxRank) {
         setProgress({...progress, rank: "prata", value: 0});
       }
     },
     prata(value) {
-      if (value >= maxRank) {
+      if (value >= config.maxRank) {
         setProgress({...progress, rank: "ouro", value: 0});
       }
     },
@@ -54,14 +35,14 @@ const App = () => {
     // esmeralda
   }
 
-  const [cube01, setCube01] = useState(cube);
-  const [cube02, setCube02] = useState(cube);
+  const [cube01, setCube01] = useState(config.cube);
+  const [cube02, setCube02] = useState(config.cube);
   const [match, setMatch] = useState(false);
 
   const [historic, setHistoric] = useState([]);
-  const [balance, setBalance] = useState(initialBalance);
-  const [progress, setProgress] = useState(initialRank);
-  const [statistics, setStatistics] = useState(faces);
+  const [balance, setBalance] = useState(config.initialBalance);
+  const [progress, setProgress] = useState(config.initialRank);
+  const [statistics, setStatistics] = useState(config.faces);
 
   const [value, setValue] = useState(0.00);
   const [multiplication, setMultiplication] = useState(0);
@@ -69,13 +50,12 @@ const App = () => {
   const [bet, setBet] = useState(0);
 
   const [startDisabled, setStartDisabled] = useState(true);
-  const [error, setError] = useState({});
 
   useEffect(() => {
     const c1 = getElement("#cube_01");
     const c2 = getElement("#cube_02");
 
-    const random = getRandomInt(min, max);
+    const random = getRandomInt(config.min, config.max);
 
     c1.style.animation = `fall-cube-1-${random} 2s`;
     c2.style.animation = `fall-cube-2-${random} 2s`;
@@ -145,16 +125,16 @@ const App = () => {
     }
 
     setStartDisabled(true);
-    setError({ msg: errors[1] });
+    errorNotify(config.errors[1]);
   }
 
   const start = () => {
     const c1 = getElement("#cube_01");
     const c2 = getElement("#cube_02");
 
-    if (c1.style.animationPlayState === paused) {
-      c1.style.animationPlayState = running;
-      c2.style.animationPlayState = running;
+    if (c1.style.animationPlayState === config.paused) {
+      c1.style.animationPlayState = config.running;
+      c2.style.animationPlayState = config.running;
     } else {
       c1.style.animation = "rotate-cube-1 infinite alternate";
       c1.style.animationDuration = "0.5s";
@@ -162,12 +142,12 @@ const App = () => {
       c2.style.animationDuration = "0.5s";
     }
 
-    const r_1 = getRandomInt(min, max);
-    const r_2 = getRandomInt(min, max);
+    const r_1 = getRandomInt(config.min, config.max);
+    const r_2 = getRandomInt(config.min, config.max);
 
     setTimeout(() => {
-      c1.style.animationPlayState = paused;
-      c2.style.animationPlayState = paused;
+      c1.style.animationPlayState = config.paused;
+      c2.style.animationPlayState = config.paused;
       c1.style.animation = "";
       c2.style.animation = "";
       c1.style.transform = transformLeft[r_1]();
@@ -210,19 +190,6 @@ const App = () => {
     });
   }
 
-  const currencyMask = (e) => {
-    const onlyDigits = e.target.value
-    .split("")
-    .filter(s => /\d/.test(s))
-    .join("")
-    .padStart(3, "0");
-
-    setError({ msg: "" });
-
-    const digitsFloat = `${onlyDigits.slice(0, -2)}.${onlyDigits.slice(-2)}`;
-    e.target.value = maskCurrency(digitsFloat);
-  }
-
   const onChangeValue = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     let newValue = "";
@@ -247,7 +214,7 @@ const App = () => {
       setValue(newValue);
 
       if (+newValue > balance) {
-        setError({ msg: errors[1] });
+        errorNotify(config.errors[1]);
       }
     }
   };
@@ -259,7 +226,7 @@ const App = () => {
   return (
     <div>
       <Header
-        maxRank={maxRank}
+        maxRank={config.maxRank}
         balance={balance}
         progress={progress}
       />
@@ -268,7 +235,6 @@ const App = () => {
         <div id="game">
           <Controller
             bet={bet}
-            error={error}
             multiplication={multiplication}
             profitVictory={profitVictory}
             startDisabled={startDisabled}
@@ -292,6 +258,10 @@ const App = () => {
         </div>
 
         <Historic historic={historic} />
+      </div>
+
+      <div id="notifications">
+        <ToastContainer />
       </div>
     </div>
   );

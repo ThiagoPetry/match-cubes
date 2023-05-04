@@ -1,0 +1,28 @@
+{
+  "min": 1,
+  "max": 6,
+  "maxRank": 10000,
+  "initialBalance": 25000.00,
+  "paused": "paused",
+  "running": "running",
+  "errors": {
+    "1": "Valor maior que o saldo disponível."
+  },
+  "cube": {
+    "element": "",
+    "random": ""
+  },
+  "faces": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0
+  },
+  "initialRank": {
+    "rank": "bronze",
+    "level": 1,
+    "value": 0
+  }
+}

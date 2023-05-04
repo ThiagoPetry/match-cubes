@@ -5,7 +5,6 @@ import Button from "../../Button/Button.js";
 
 const Controller = ({
   bet,
-  error,
   multiplication,
   profitVictory,
   startDisabled,
@@ -14,6 +13,8 @@ const Controller = ({
   onChangeBet,
   onChangeValue,
 }) => {
+  const faces = [1, 2, 3, 4, 5, 6];
+
   return (
     <div id="game-controller">
       <div>
@@ -44,7 +45,7 @@ const Controller = ({
         <label>Aposta</label>
         <div className="options">
           {
-            [1, 2, 3, 4, 5, 6].map((item) => (
+            faces.map((item) => (
               <Button
                 key={item}
                 className={`bet${bet === item ? " selected" : ""}`}
@@ -62,9 +63,6 @@ const Controller = ({
           disabled={startDisabled}
           onClick={() => preStart()}
         />
-      </div>
-      <div id="message">
-        {error.msg}
       </div>
     </div>
   );
