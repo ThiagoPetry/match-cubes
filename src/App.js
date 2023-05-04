@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { ToastContainer } from "react-toastify";
 
-import { errorNotify } from "./hooks/SystemToasts";
+import { successNotify, errorNotify } from "./hooks/SystemToasts";
 
 import { maskCurrency } from "./utils/maskCurrency";
 import { currencyMask } from "./utils/currencyMask";
@@ -17,16 +17,19 @@ import Controller from "./components/Game/Controller/Controller.js";
 import Statistics from "./components/Game/Statistics/Statistics.js";
 
 import config from "./config.json";
+import Modal from "./components/Modal/Modal";
 
 const App = () => {
   const ranks = {
     bronze(value) {
       if (value >= config.maxRank) {
+        successNotify("Rank Prata desbloqueado!");
         setProgress({...progress, rank: "prata", value: 0});
       }
     },
     prata(value) {
       if (value >= config.maxRank) {
+        successNotify("Rank Ouro desbloqueado!");
         setProgress({...progress, rank: "ouro", value: 0});
       }
     },
@@ -169,8 +172,7 @@ const App = () => {
         date: new Date(),
       }]);
       setProgress({
-        rank: "bronze",
-        level: 1,
+        ...progress,
         value: progress.value + (1 * multiplication),
       });
       setCube01({ ...cube01, random: r_1 });
@@ -224,46 +226,54 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Header
-        maxRank={config.maxRank}
-        balance={balance}
-        progress={progress}
-      />
+    <>
+      <ToastContainer />
+      {/* <Modal /> */}
 
-      <div id="cassino">
-        <div id="game">
-          <Controller
-            bet={bet}
-            multiplication={multiplication}
-            profitVictory={profitVictory}
-            startDisabled={startDisabled}
-            currencyMask={(e) => currencyMask(e)}
-            preStart={() => preStart()}
-            onChangeBet={(e) => onChangeBet(e)}
-            onChangeValue={(e) => onChangeValue(e)}
-          />
+      <div>
+        <Header
+          maxRank={config.maxRank}
+          balance={balance}
+          progress={progress}
+        />
 
-          <div id="game-canvas">
-            <Result
-              match={match}
-              cube01={cube01}
-              cube02={cube02}
-            />
+        <div id="cassino">
+          <div>
+            <div id="game">
+              <Controller
+                bet={bet}
+                multiplication={multiplication}
+                profitVictory={profitVictory}
+                startDisabled={startDisabled}
+                currencyMask={(e) => currencyMask(e)}
+                preStart={() => preStart()}
+                onChangeBet={(e) => onChangeBet(e)}
+                onChangeValue={(e) => onChangeValue(e)}
+              />
 
-            <Cubes />
+              <div id="game-canvas">
+                <Result
+                  match={match}
+                  cube01={cube01}
+                  cube02={cube02}
+                />
 
-            <Statistics statistics={statistics} />
+                <Cubes />
+
+                <Statistics statistics={statistics} />
+              </div>
+            </div>
+
+            <Historic historic={historic} />
           </div>
+          {/* <div>
+            <div id="graphic">
+              teste
+            </div>
+          </div> */}
         </div>
-
-        <Historic historic={historic} />
       </div>
-
-      <div id="notifications">
-        <ToastContainer />
-      </div>
-    </div>
+    </>
   );
 }
 

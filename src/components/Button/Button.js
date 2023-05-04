@@ -2,6 +2,7 @@ import React from "react";
 
 const Button = ({
   id,
+  icon,
   label,
   onClick,
   disabled,
@@ -15,7 +16,8 @@ const Button = ({
       disabled={disabled}
       className={className}
     >
-      {label}
+      {label && label}
+      {icon && icon}
     </button>
   );
 }

@@ -21,7 +21,11 @@ const Header = ({
               <p className={progress.rank}>Bronze</p>
               <p>Nível {progress.level}</p>
             </div>
-            <progress value={progress.value} max={maxRank} />
+            <progress
+              max={maxRank}
+              value={progress.value}
+              className={`progress_${progress.rank}`}
+            />
           </div>
         </div>
         <div className="currency">
