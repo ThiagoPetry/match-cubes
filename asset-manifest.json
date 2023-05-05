@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/match-cubes/static/css/main.4d7692d0.css",
-    "main.js": "/match-cubes/static/js/main.bdba044a.js",
+    "main.css": "/match-cubes/static/css/main.dd5c94b5.css",
+    "main.js": "/match-cubes/static/js/main.c78cee07.js",
     "index.html": "/match-cubes/index.html",
-    "main.4d7692d0.css.map": "/match-cubes/static/css/main.4d7692d0.css.map",
-    "main.bdba044a.js.map": "/match-cubes/static/js/main.bdba044a.js.map"
+    "main.dd5c94b5.css.map": "/match-cubes/static/css/main.dd5c94b5.css.map",
+    "main.c78cee07.js.map": "/match-cubes/static/js/main.c78cee07.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d7692d0.css",
-    "static/js/main.bdba044a.js"
+    "static/css/main.dd5c94b5.css",
+    "static/js/main.c78cee07.js"
   ]
 }
