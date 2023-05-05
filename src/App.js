@@ -140,9 +140,9 @@ const App = () => {
       c2.style.animationPlayState = config.running;
     } else {
       c1.style.animation = "rotate-cube-1 infinite alternate";
-      c1.style.animationDuration = "0.5s";
+      c1.style.animationDuration = "0.3s";
       c2.style.animation = "rotate-cube-2 infinite alternate";
-      c2.style.animationDuration = "0.5s";
+      c2.style.animationDuration = "0.3s";
     }
 
     const r_1 = getRandomInt(config.min, config.max);

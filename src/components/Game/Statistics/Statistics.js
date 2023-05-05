@@ -1,4 +1,5 @@
 import React from "react";
+
 import Button from "../../Button/Button";
 
 const Statistics = ({
@@ -28,6 +29,7 @@ const Statistics = ({
       </div>
       <div>
         <Button
+          disabled={true}
           icon={"monitoring"}
           className={"button material-symbols-outlined"}
         />
