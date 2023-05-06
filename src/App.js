@@ -7,17 +7,15 @@ import { successNotify, errorNotify } from "./hooks/SystemToasts";
 import { maskCurrency } from "./utils/maskCurrency";
 import { currencyMask } from "./utils/currencyMask";
 import { getRandomInt } from "./utils/getRandomInt";
+import { getRandomId } from "./utils/getRandomId";
 import { transformLeft, transformRigth } from "./utils/transform";
 
 import Header from "./components/Header/Header.js";
-import Cubes from "./components/Game/Cubes/Cubes.js";
-import Result from "./components/Game/Result/Result.js";
+import Canvas from "./components/Game/Canvas/Canvas.js";
 import Historic from "./components/Game/Historic/Historic.js";
 import Controller from "./components/Game/Controller/Controller.js";
-import Statistics from "./components/Game/Statistics/Statistics.js";
 
-import config from "./config.json";
-import Modal from "./components/Modal/Modal";
+import config from "./config/config.json";
 
 const App = () => {
   const ranks = {
@@ -110,7 +108,7 @@ const App = () => {
   }, [balance, value, bet]);
 
   useEffect(() => {
-    const mult = value * 0.02;
+    const mult = value * 0.002;
     const victory = value * mult;
 
     setMultiplication(mult);
@@ -156,6 +154,7 @@ const App = () => {
       c1.style.transform = transformLeft[r_1]();
       c2.style.transform = transformRigth[r_2]();
 
+      const date = new Date();
       const success = r_1 === r_2 && r_1 === bet;
       const operation = !success ?
         balance - value : balance + (multiplication * value);
@@ -168,8 +167,13 @@ const App = () => {
       setHistoric([...historic, {
         cubes: { 1: r_1, 2: r_2 },
         bet: bet,
+        betId: getRandomId(),
         result: success ? "success" : "failed",
-        date: new Date(),
+        win: success ? true : false,
+        date: date,
+        formattedDate: `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
+        value: value,
+        multiplication: multiplication,
       }]);
       setProgress({
         ...progress,
@@ -228,7 +232,6 @@ const App = () => {
   return (
     <>
       <ToastContainer />
-      {/* <Modal /> */}
 
       <div>
         <Header
@@ -251,17 +254,12 @@ const App = () => {
                 onChangeValue={(e) => onChangeValue(e)}
               />
 
-              <div id="game-canvas">
-                <Result
-                  match={match}
-                  cube01={cube01}
-                  cube02={cube02}
-                />
-
-                <Cubes />
-
-                <Statistics statistics={statistics} />
-              </div>
+              <Canvas
+                match={match}
+                cube01={cube01}
+                cube02={cube02}
+                statistics={statistics}
+              />
             </div>
 
             <Historic historic={historic} />

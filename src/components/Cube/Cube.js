@@ -3,9 +3,10 @@ import React from "react";
 const Cube = ({
   id,
   ref,
+  className,
 }) => {
   return (
-    <div id={id} ref={ref} className="cube">
+    <div id={id} ref={ref} className={`cube ${className ? className : ""}`}>
       <div className="face face-1">
         <span className="line line-top"></span>
         <span className="line">

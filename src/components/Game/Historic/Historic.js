@@ -3,15 +3,16 @@ import React from "react";
 import { openModal } from "../../../hooks/OpenModal";
 import { closeModal } from "../../../hooks/CloseModal";
 
-import Modal from "../../Modal/Modal";
+import BetInfo from "../../Popups/BetInfo";
 
 const Historic = ({
   historic,
 }) => {
-  const modalInfo = (
-    <Modal onClose={() => closeModal()}>
-      teste
-    </Modal>
+  const modal = (info) => (
+    <BetInfo
+      info={info}
+      closeModal={() => closeModal()}
+    />
   );
 
   return (
@@ -21,7 +22,7 @@ const Historic = ({
           (historic || []).slice(0).reverse().map((item, index) => (
             <div
               key={index}
-              onClick={() => openModal(modalInfo)}
+              onClick={() => openModal(modal(item))}
               className={`item ${item.result}`}
             >
               <span>

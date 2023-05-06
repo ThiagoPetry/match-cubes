@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../Button/Button";
 
 const Modal = ({
+  title,
   onClose,
   children,
 }) => {
@@ -10,7 +11,9 @@ const Modal = ({
     <div id="modal">
       <div id="modal_container">
         <div className="header">
-          <div className="title">Título aq</div>
+          <div className="title">
+            {title && title}
+          </div>
           <Button
             icon={"close"}
             onClick={() => onClose()}
