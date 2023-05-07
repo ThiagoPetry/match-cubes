@@ -1,11 +1,15 @@
 import React from "react";
 
+import Icon from "../Icon/Icon.js";
+
 const Button = ({
   id,
   icon,
   label,
   onClick,
   disabled,
+  iconLeft,
+  iconRight,
   className,
 }) => {
   return (
@@ -16,8 +20,17 @@ const Button = ({
       disabled={disabled}
       className={className}
     >
-      {label && label}
-      {icon && icon}
+      <>
+        {icon && iconLeft &&
+          <Icon icon={icon} />
+        }
+
+        {label && label}
+
+        {icon && iconRight &&
+          <Icon icon={icon} />
+        }
+      </>
     </button>
   );
 }

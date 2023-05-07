@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 
-const Login = () => {
-  const [balance, setBalance] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  const onChangeBalance = (e) => {
-    setBalance(e);
-  };
-
-  const onChangeProgress = (e) => {
-    setProgress(e);
-  };
-
+const Login = ({
+  access,
+  onChangeUsername,
+  onChangePassword,
+}) => {
   return (
     <div id="login">
       <div>
@@ -26,6 +19,7 @@ const Login = () => {
           <Input
             id={"username"}
             disabled={true}
+            onChange={(e) => onChangeUsername(e)}
           />
         </div>
         <div>
@@ -33,6 +27,8 @@ const Login = () => {
           <Input
             id={"password"}
             disabled={true}
+            type={"password"}
+            onChange={(e) => onChangePassword(e)}
           />
           <a>Não possui uma conta? Cadastre-se aqui</a>
         </div>
@@ -47,6 +43,7 @@ const Login = () => {
           <Button
             id={"access"}
             label={"Protótipo"}
+            onClick={() => access()}
           />
         </div>
       </div>

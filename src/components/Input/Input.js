@@ -2,6 +2,7 @@ import React from "react";
 
 const Input = ({
   id,
+  type,
   value,
   onInput,
   onChange,
@@ -12,6 +13,7 @@ const Input = ({
     <input
       id={id}
       name={id}
+      type={type}
       value={value}
       onChange={onChange}
       disabled={disabled}

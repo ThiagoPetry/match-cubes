@@ -8,9 +8,10 @@
 }
 
 ::-webkit-scrollbar {
-  background-color: #1b242f;
+  width: 12px;
   height: 12px;
   border-radius: 6px;
+  background-color: #1b242f;
 }
     
 ::-webkit-scrollbar-thumb {
@@ -27,7 +28,7 @@ progress {
 	border: 0;
 	border-radius: 6px;
 	position: relative;
-  height: 8px;
+  height: 6px;
 }
 
 progress::-webkit-progress-bar {
@@ -58,6 +59,12 @@ label {
 #username, #password, #value, #multiplication, #profit_victory {
   width: 260px;
   height: 25px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
@@ -108,17 +115,28 @@ input:disabled {
   margin: 0 0 0 15px;
 }
 
-.close:hover, .button:hover, #access:hover, #start:hover, #deposit:hover {
+.button:hover {
+  cursor: pointer;
+  background-color: #0f1923;
+  opacity: 0.9;
+}
+
+.button:active {
+  background-color: #0f1923;
+  opacity: 0.8;
+}
+
+.close:hover, #access:hover, #start:hover, #deposit:hover, button:hover {
   cursor: pointer;
   opacity: 0.9;
 }
 
-.close:active, .button:active, #access:active, #start:active, #deposit:active {
+.close:active, #access:active, #start:active, #deposit:active, button:active {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.close:disabled, .button:disabled, #access:disabled, #start:disabled, #deposit:disabled {
+.close:disabled, #access:disabled, #start:disabled, #deposit:disabled, button:disabled {
   cursor: no-drop;
   opacity: 0.4;
 }
@@ -324,7 +342,7 @@ input:disabled {
   height: 60px;
   z-index: 99;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   flex-direction: row;
   align-items: center;
   margin: 0 20px 0 0px;
@@ -437,9 +455,16 @@ input:disabled {
   left: 0;
 }
 
+.medium {
+  width: 550px;
+}
+
+.small {
+  width: 350px;
+}
+
 #modal_container {
   background-color: #1b242f;
-  width: 550px;
   min-height: 200px;
   border-radius: 6px;
   box-shadow: 0 5px 20px 0 rgba(6,10,14,.25);
@@ -467,7 +492,7 @@ input:disabled {
   padding: 10px 30px 10px 30px;
   flex: 1 1;
   overflow: hidden auto;
-  max-height: 600px;
+  max-height: 500px;
 }
 
 #modal_container .footer {
@@ -478,11 +503,11 @@ input:disabled {
   padding: 10px;
 }
 
-#bet_information p {
+#bet_information p, #method_information p, #payment_information p {
   color: #bcbfc7;
 }
 
-#bet_information .info {
+#bet_information .info, #method_information .info, #payment_information .info {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -529,6 +554,43 @@ input:disabled {
   font-weight: bold;
   font-size: 26px;
   margin: 0 10px 0 10px;
+}
+
+#method_information .info button, #payment_information .info button {
+  width: 100%;
+  background-color: #1b242f;
+  padding: 10px;
+  border: 1px solid #323b45;
+  font-size: 16px;
+  font-weight: bold;
+  color: #bcbfc7;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.spinner {
+  padding: 30px;
+  border-radius: 100px;
+  border: 6px solid #06e385;
+  box-shadow: 0 0 10px 10px #06e385;
+  border-right: 6px solid transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+#footer {
+  background-color: #1b242f;
+  min-height: 100px;
 }
 
 #login {
@@ -703,6 +765,16 @@ input:disabled {
 }
 
 /* Animations */
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes rotate-cube-1 {
   from {

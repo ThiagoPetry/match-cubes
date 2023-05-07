@@ -10,6 +10,7 @@ const Historic = ({
 }) => {
   const modal = (info) => (
     <BetInfo
+      size={"medium"}
       info={info}
       closeModal={() => closeModal()}
     />

@@ -24,5 +24,14 @@
     "rank": "bronze",
     "level": 1,
     "value": 0
+  },
+  "user": {
+    "username": "",
+    "password": "",
+    "logged": false
+  },
+  "deposit": {
+    "title": "Método",
+    "method": ""
   }
 }

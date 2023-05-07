@@ -1,18 +1,21 @@
 import React from "react";
 
+import { maskCurrency } from "../../utils/maskCurrency";
+import { currencyMask } from "../../utils/currencyMask";
+
 import Modal from "../Modal/Modal";
 import Input from "../Input/Input";
-import Cube from "../Cube/Cube";
 
 const BetInfo = ({
   info,
+  size,
   closeModal,
 }) => {
-  const profit = info.value * info.multiplication;
-  console.log(info.value, info.multiplication);
+  const profit = maskCurrency(info.value * info.multiplication);
 
   return (
     <Modal
+      size={size}
       title={"Informações da Aposta"}
       onClose={() => closeModal()}
     >
@@ -25,7 +28,7 @@ const BetInfo = ({
             <label>Aposta</label>
             <Input
               disabled={true}
-              value={`R$ ${info.value}`}
+              value={info.value}
             />
           </div>
           <div>
@@ -39,7 +42,7 @@ const BetInfo = ({
             <label>Lucro na Vitória</label>
             <Input
               disabled={true}
-              value={`${!info.win ? "-" : ""}R$ ${profit}`}
+              value={`${!info.win ? "-" : ""}${profit}`}
             />
           </div>
         </div>

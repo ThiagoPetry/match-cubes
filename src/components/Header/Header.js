@@ -1,8 +1,12 @@
 import React from "react";
 
 import { maskCurrency } from "../../utils/maskCurrency";
+import { openModal } from "../../hooks/OpenModal";
+import { closeModal } from "../../hooks/CloseModal";
 
 import Button from "../Button/Button.js";
+import Deposit from "../Popups/Deposit";
+
 import match_cubes from "../../img/match_cubes.svg";
 
 const Header = ({
@@ -10,10 +14,16 @@ const Header = ({
   balance,
   progress,
 }) => {
+  const modal = (
+    <Deposit
+      size={"small"}
+      closeModal={() => closeModal()}
+    />
+  );
+
   return (
     <div id="header">
       <div>
-        {/* <h1>Match Cubes</h1> */}
         <img src={match_cubes} className="logo" />
       </div>
       <div className="right">
@@ -36,7 +46,7 @@ const Header = ({
         <Button
           id={"deposit"}
           label={"Depositar"}
-          disabled={true}
+          onClick={() => openModal(modal)}
         />
       </div>
     </div>
