@@ -3,6 +3,7 @@ import React from "react";
 import { maskCurrency } from "../../utils/maskCurrency";
 
 import Button from "../Button/Button.js";
+import match_cubes from "../../img/match_cubes.svg";
 
 const Header = ({
   maxRank,
@@ -12,7 +13,8 @@ const Header = ({
   return (
     <div id="header">
       <div>
-        <h1>Match Cubes</h1>
+        {/* <h1>Match Cubes</h1> */}
+        <img src={match_cubes} className="logo" />
       </div>
       <div className="right">
         <div className="level">

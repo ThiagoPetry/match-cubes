@@ -29,8 +29,15 @@ const Statistics = ({
       </div>
       <div>
         <Button
-          disabled={true}
+          icon={"casino"}
+          className={"button material-symbols-outlined"}
+        />
+        <Button
           icon={"monitoring"}
+          className={"button material-symbols-outlined"}
+        />
+        <Button
+          icon={"info"}
           className={"button material-symbols-outlined"}
         />
       </div>

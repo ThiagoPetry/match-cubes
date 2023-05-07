@@ -9,6 +9,7 @@ const BetInfo = ({
   closeModal,
 }) => {
   const profit = info.value * info.multiplication;
+  console.log(info.value, info.multiplication);
 
   return (
     <Modal
@@ -42,11 +43,18 @@ const BetInfo = ({
             />
           </div>
         </div>
-        <div className="show_cubes">
-          <Cube className={`face-1-${info.cubes[1]}`} />
-          <Cube className={`face-2-${info.cubes[2]}`} />
+        <div className="info results">
+          <div className={info.result}>
+            {info.bet}
+          </div>
+          <div className={info.result}>
+            {info.cubes[1]}
+          </div>
+          <div className={info.result}>
+            {info.cubes[2]}
+          </div>
         </div>
-        <div className="info fields">
+        <div className="info fields big">
           <div>
             <label>Hash</label>
             <Input
@@ -55,7 +63,7 @@ const BetInfo = ({
             />
           </div>
         </div>
-        <div className="info fields">
+        <div className="info fields big">
           <div>
             <label>Seed Server</label>
             <Input
@@ -64,7 +72,7 @@ const BetInfo = ({
             />
           </div>
         </div>
-        <div className="info fields">
+        <div className="info fields big">
           <div>
             <label>Hashed Server Seed</label>
             <Input
@@ -73,7 +81,7 @@ const BetInfo = ({
             />
           </div>
         </div>
-        <div className="info fields">
+        <div className="info fields big">
           <div>
             <label>Seed do cliente</label>
             <Input

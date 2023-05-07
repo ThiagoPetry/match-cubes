@@ -55,7 +55,7 @@ label {
   margin: 0px 0 10px 0;
 }
 
-#value, #multiplication, #profit_victory {
+#username, #password, #value, #multiplication, #profit_victory {
   width: 260px;
   height: 25px;
 }
@@ -72,6 +72,10 @@ input:disabled {
   opacity: 0.6;
 }
 
+.logo {
+  width: 300px;
+}
+
 .close {
   background-color: #1b242f;
   padding: 10px;
@@ -84,9 +88,10 @@ input:disabled {
   padding: 10px;
   border: 1px solid #323b45;
   font-size: 20px;
+  margin: 0 0 0 10px;
 }
 
-#start, #deposit {
+#access, #start, #deposit {
   width: 280px;
   height: 45px;
   background-color: #f12c4c;
@@ -103,17 +108,17 @@ input:disabled {
   margin: 0 0 0 15px;
 }
 
-.close:hover, .button:hover, #start:hover, #deposit:hover {
+.close:hover, .button:hover, #access:hover, #start:hover, #deposit:hover {
   cursor: pointer;
   opacity: 0.9;
 }
 
-.close:active, .button:active, #start:active, #deposit:active {
+.close:active, .button:active, #access:active, #start:active, #deposit:active {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.close:disabled, .button:disabled, #start:disabled, #deposit:disabled {
+.close:disabled, .button:disabled, #access:disabled, #start:disabled, #deposit:disabled {
   cursor: no-drop;
   opacity: 0.4;
 }
@@ -150,7 +155,7 @@ input:disabled {
 }
 
 #header {
-  height: 60px;
+  height: 70px;
   padding: 5px 30px 5px 30px;
   display: flex;
   flex-direction: row;
@@ -482,7 +487,6 @@ input:disabled {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  margin: 0 0 10px 0;
 }
 
 #bet_information .info:nth-child(1) {
@@ -504,11 +508,101 @@ input:disabled {
   height: 25px;
 }
 
+#bet_information .big div input {
+  width: 350px;
+}
+
 #bet_information .show_cubes {
   display: flex;
   overflow: hidden;
   margin: 0 0 10px 0;
 }
+
+#bet_information .results {
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+#bet_information .results div {
+  padding: 15px 25px 15px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 26px;
+  margin: 0 10px 0 10px;
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#login h1 {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+#login a {
+  font-size: 12px;
+  color: #bcbfc7;
+  margin: 10px 0 0 0;
+}
+
+#login a:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#login a:active {
+  opacity: 0.8;
+}
+
+#login > div {
+  width: 280px;
+  background-color: #1b242f;
+  border: 1px solid #323b45;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px 0 rgba(6,10,14,.25);
+  overflow: hidden;
+  padding: 15px 30px 15px 30px;
+}
+
+#login div div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
