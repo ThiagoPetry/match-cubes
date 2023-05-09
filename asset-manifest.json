@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/match-cubes/static/css/main.dd5c94b5.css",
-    "main.js": "/match-cubes/static/js/main.c78cee07.js",
+    "main.css": "/match-cubes/static/css/main.16e6dea0.css",
+    "main.js": "/match-cubes/static/js/main.d691ba33.js",
+    "static/media/match_cubes.svg": "/match-cubes/static/media/match_cubes.b7a4fcb72fea7e68e8eb58057c40da70.svg",
+    "static/media/icon_module_1.svg": "/match-cubes/static/media/icon_module_1.9970ac5dbe43019226283a431dadd5a7.svg",
+    "static/media/cards.svg": "/match-cubes/static/media/cards.d53dea61188712b2553cc57f5851b016.svg",
     "index.html": "/match-cubes/index.html",
-    "main.dd5c94b5.css.map": "/match-cubes/static/css/main.dd5c94b5.css.map",
-    "main.c78cee07.js.map": "/match-cubes/static/js/main.c78cee07.js.map"
+    "main.16e6dea0.css.map": "/match-cubes/static/css/main.16e6dea0.css.map",
+    "main.d691ba33.js.map": "/match-cubes/static/js/main.d691ba33.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd5c94b5.css",
-    "static/js/main.c78cee07.js"
+    "static/css/main.16e6dea0.css",
+    "static/js/main.d691ba33.js"
   ]
 }
