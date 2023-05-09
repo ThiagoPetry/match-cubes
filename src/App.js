@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Header from "./components/Header/Header.js";
 import Cassino from "./components/Cassino/Cassino.js";
 import Login from "./pages/Login/Login.js";
+import Home from "./pages/Home/Home.js";
 
 import config from "./config/config.json";
 import Loading from "./components/Loading/Loading.js";
@@ -30,6 +31,10 @@ const App = () => {
 
   const onChangePassword = (e) => {
     setUser({...user, password: e.target.value});
+  };
+
+  const onChangeModule = (e) => {
+    setUser({...user, module: e});
   };
 
   const onChangeBalance = (e) => {
@@ -59,17 +64,27 @@ const App = () => {
       <ToastContainer />
 
       <Header
-        maxRank={config.maxRank}
         balance={balance}
         progress={progress}
+        maxRank={config.maxRank}
+        module={user.module}
+        onChangeModule={(e) => onChangeModule(e)}
       />
 
-      <Cassino
-        balance={balance}
-        progress={progress}
-        onChangeBalance={(e) => onChangeBalance(e)}
-        onChangeProgress={(e) => onChangeProgress(e)}
-      />
+      {
+        user.module ?
+          <Cassino
+            balance={balance}
+            progress={progress}
+            onChangeBalance={(e) => onChangeBalance(e)}
+            onChangeProgress={(e) => onChangeProgress(e)}
+          />
+        :
+          <Home
+            onChangeModule={(e) => onChangeModule(e)}
+          />
+      }
+
 
       {/* <Footer /> */}
     </>

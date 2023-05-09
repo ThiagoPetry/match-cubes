@@ -1,5 +1,7 @@
 import React from "react";
 
+import { closeModal } from "../../hooks/CloseModal.js";
+
 import { maskCurrency } from "../../utils/maskCurrency";
 import { currencyMask } from "../../utils/currencyMask";
 
@@ -9,7 +11,6 @@ import Input from "../Input/Input";
 const BetInfo = ({
   info,
   size,
-  closeModal,
 }) => {
   const profit = maskCurrency(info.value * info.multiplication);
 

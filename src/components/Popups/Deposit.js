@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
+import { closeModal } from "../../hooks/CloseModal.js";
+
 import Modal from "../Modal/Modal.js";
 import Button from "../Button/Button.js";
-import Icon from "../Icon/Icon.js";
 
 import config from "../../config/config.json";
 
 const Deposit = ({
   size,
-  closeModal,
 }) => {
   const [step, setStep] = useState("method");
   const [paymentConfig, setPaymentConfig] = useState(config.deposit);

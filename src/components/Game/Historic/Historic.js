@@ -1,7 +1,6 @@
 import React from "react";
 
 import { openModal } from "../../../hooks/OpenModal";
-import { closeModal } from "../../../hooks/CloseModal";
 
 import BetInfo from "../../Popups/BetInfo";
 
@@ -12,7 +11,6 @@ const Historic = ({
     <BetInfo
       size={"medium"}
       info={info}
-      closeModal={() => closeModal()}
     />
   );
 

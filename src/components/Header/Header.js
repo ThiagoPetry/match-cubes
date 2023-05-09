@@ -1,33 +1,54 @@
 import React from "react";
 
-import { maskCurrency } from "../../utils/maskCurrency";
-import { openModal } from "../../hooks/OpenModal";
-import { closeModal } from "../../hooks/CloseModal";
+import { maskCurrency } from "../../utils/maskCurrency.js";
+import { openModal } from "../../hooks/OpenModal.js";
 
 import Button from "../Button/Button.js";
-import Deposit from "../Popups/Deposit";
+import Deposit from "../Popups/Deposit.js";
+import LevelInfo from "../Popups/LevelInfo.js";
+
+import config from "../../config/config.json";
 
 import match_cubes from "../../img/match_cubes.svg";
+import cards from "../../img/cards.svg";
+import Icon from "../Icon/Icon.js";
 
 const Header = ({
+  module,
   maxRank,
   balance,
   progress,
+  onChangeModule,
 }) => {
-  const modal = (
+  const levelModal = (
+    <LevelInfo
+      size={"medium"}
+    />
+  );
+
+  const depositModal = (
     <Deposit
       size={"small"}
-      closeModal={() => closeModal()}
     />
   );
 
   return (
     <div id="header">
       <div>
-        <img src={match_cubes} className="logo" />
+        {
+          module ?
+            <h1 className="logo" onClickCapture={() => onChangeModule("")}>
+              {config.modules.find(item => item.id === module).name}
+            </h1>
+          :
+            <h1 className="logo" onClickCapture={() => onChangeModule("")}>
+              Cassino
+            </h1>
+            // <img src={match_cubes} className="logo" onClick={() => onChangeModule("")} />
+        }
       </div>
       <div className="right">
-        <div className="level">
+        <div className="level" onClick={() => openModal(levelModal)}>
           <div>
             <div>
               <p className={progress.rank}>Bronze</p>
@@ -46,7 +67,7 @@ const Header = ({
         <Button
           id={"deposit"}
           label={"Depositar"}
-          onClick={() => openModal(modal)}
+          onClick={() => openModal(depositModal)}
         />
       </div>
     </div>

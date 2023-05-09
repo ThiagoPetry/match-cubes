@@ -79,8 +79,12 @@ input:disabled {
   opacity: 0.6;
 }
 
-.logo {
-  width: 300px;
+img.logo {
+  width: 225px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 .close {
@@ -194,6 +198,15 @@ input:disabled {
   font-weight: bold;
   letter-spacing: 1px;
   margin: 0 15px 0 0;
+}
+
+#header .right .level:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#header .right .level:active {
+  opacity: 0.8;
 }
 
 #header .right .level div div {
@@ -556,6 +569,10 @@ input:disabled {
   margin: 0 10px 0 10px;
 }
 
+#method_information, #payment_information {
+  min-height: 300px;
+}
+
 #method_information .info button, #payment_information .info button {
   width: 100%;
   background-color: #1b242f;
@@ -642,11 +659,58 @@ input:disabled {
   margin: 0 0 20px 0;
 }
 
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 600px;
+}
 
+#home > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
 
+#home > div .module {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1b242f;
+  padding: 40px;
+  margin: 10px;
+  border-radius: 6px;
+  border: 1px solid #323b45;
+  box-shadow: 0 5px 20px 0 rgba(6,10,14,.25);
+}
 
+#home > div .module:hover:not(.disabled) {
+  cursor: pointer;
+  opacity: 0.9;
+}
 
+#home > div .module:active:not(.disabled) {
+  opacity: 0.8;
+}
 
+#home > div .disabled {
+  opacity: 0.4;
+  cursor: no-drop;
+}
+
+#home > div .module img {
+  width: 150px;
+}
+
+#home > div .module h1 {
+  margin: 10px 0 0 0;
+  font-size: 36px;
+}
 
 
 

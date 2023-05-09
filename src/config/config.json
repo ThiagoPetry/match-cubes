@@ -8,6 +8,24 @@
   "errors": {
     "1": "Valor maior que o saldo disponível."
   },
+  "modules": [
+    {
+      "id": "MATCH_CUBES",
+      "name": "Match Cubes",
+      "disabled": false,
+      "icon": "icon_module_1"
+    },
+    {
+      "id": "MATCH_CUBES2",
+      "name": "Match Cubes",
+      "disabled": true
+    },
+    {
+      "id": "MATCH_CUBES3",
+      "name": "Match Cubes",
+      "disabled": true
+    }
+  ],
   "cube": {
     "element": "",
     "random": ""
@@ -28,7 +46,8 @@
   "user": {
     "username": "",
     "password": "",
-    "logged": false
+    "logged": false,
+    "module": ""
   },
   "deposit": {
     "title": "Método",
