@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import config from "../../config/config.json";
 
@@ -7,6 +7,10 @@ import icon_module_1 from "../../img/icon_module_1.svg";
 const Home = ({
   onChangeModule,
 }) => {
+  const iconModule = useMemo(() => {
+    return icon_module_1;
+  }, []);
+
   return (
     <div id="home">
       <div>
@@ -18,7 +22,7 @@ const Home = ({
               onClick={() => !item.disabled ? onChangeModule(item.id) : {}}
             >
               {item.icon &&
-                <img src={icon_module_1} />
+                <img src={iconModule} />
               }
               <h1>{item.name}</h1>
             </div>

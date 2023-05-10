@@ -10,6 +10,8 @@ import Home from "./pages/Home/Home.js";
 import config from "./config/config.json";
 import Loading from "./components/Loading/Loading.js";
 import Footer from "./components/Footer/Footer.js";
+import Icon from "./components/Icon/Icon.js";
+import Menu from "./components/Menu/Menu.js";
 
 const App = () => {
   const [user, setUser] = useState(config.user);
@@ -71,22 +73,28 @@ const App = () => {
         onChangeModule={(e) => onChangeModule(e)}
       />
 
-      {
-        user.module ?
-          <Cassino
-            balance={balance}
-            progress={progress}
-            onChangeBalance={(e) => onChangeBalance(e)}
-            onChangeProgress={(e) => onChangeProgress(e)}
-          />
-        :
-          <Home
-            onChangeModule={(e) => onChangeModule(e)}
-          />
-      }
+      <div id="teste">
+        <Menu
+          module={user.module}
+          onChangeModule={(e) => onChangeModule(e)}
+        />
 
+        {
+          user.module ?
+            <Cassino
+              balance={balance}
+              progress={progress}
+              onChangeBalance={(e) => onChangeBalance(e)}
+              onChangeProgress={(e) => onChangeProgress(e)}
+            />
+          :
+            <Home
+              onChangeModule={(e) => onChangeModule(e)}
+            />
+        }
+      </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

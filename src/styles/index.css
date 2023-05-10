@@ -20,7 +20,12 @@
 }
 
 body {
+  height: 100vh;
   background-color: #0f1923;
+}
+
+#container {
+  height: 100%;
 }
 
 progress {
@@ -177,18 +182,32 @@ img.logo {
 }
 
 #header {
-  height: 70px;
-  padding: 5px 30px 5px 30px;
+  padding: 0 0 5px 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
   border-bottom: 1px solid #323b45;
+}
+
+#header > div {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f1923;
+}
+
+#header .left {
+  margin: 0 0 0 30px;
 }
 
 #header .right {
   display: flex;
   align-items: center;
+  margin: 0 30px 0 0;
 }
 
 #header .right .level {
@@ -256,11 +275,11 @@ img.logo {
 
 #cassino {
   width: 100%;
+  margin: 70px 0 0 0;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: row;
-  margin: 0 0 50px 0;
 }
 
 #game {
@@ -390,7 +409,7 @@ img.logo {
 
 #historic {
   width: 1000px;
-  margin: 25px 0 0 0;
+  margin: 25px 0 100px 0;
   height: 50px;
   padding: 10px;
   display: flex;
@@ -607,7 +626,10 @@ img.logo {
 
 #footer {
   background-color: #1b242f;
-  min-height: 100px;
+  left: 0;
+  right: 0;
+  position: relative;
+  height: 300px;
 }
 
 #login {
@@ -661,6 +683,7 @@ img.logo {
 
 #home {
   display: flex;
+  margin: 70px 0 0 0;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -676,13 +699,14 @@ img.logo {
 }
 
 #home > div .module {
-  height: 120px;
+  min-width: 240px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #1b242f;
-  padding: 40px;
+  padding: 20px;
   margin: 10px;
   border-radius: 6px;
   border: 1px solid #323b45;
@@ -692,6 +716,7 @@ img.logo {
 #home > div .module:hover:not(.disabled) {
   cursor: pointer;
   opacity: 0.9;
+  background-color: #0f1923;
 }
 
 #home > div .module:active:not(.disabled) {
@@ -712,6 +737,55 @@ img.logo {
   font-size: 36px;
 }
 
+#teste {
+  position: relative;
+}
+
+#menu {
+  z-index: 99;
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background: #1b242f;
+  height: 100%;
+  border-right: 1px solid #323b45;
+}
+
+#menu .item {
+  background-color: #0f1923;
+  padding: 15px 10px 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-bottom: 1px solid #323b45;
+}
+
+#menu .item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#menu .item:active {
+  opacity: 0.8;
+}
+
+#menu .selected {
+  background-color: #06e38517;
+  border-right: 2px solid #06e385;
+}
+
+#menu .item i {
+  margin: 0 10px 0 0;
+}
+
+#menu .item p {
+  font-weight: bold;
+  color: #dbdbdf;
+}
+
+#menu .selected p {
+  color: #06e385;
+}
 
 
 

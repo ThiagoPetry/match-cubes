@@ -8,6 +8,33 @@
   "errors": {
     "1": "Valor maior que o saldo disponível."
   },
+  "menu": [
+    {
+      "id": "MATCH_CUBES",
+      "name": "Match Cubes",
+      "icon": "casino"
+    },
+    {
+      "id": "MATCH_CUBES1",
+      "name": "Cassino",
+      "icon": "casino"
+    },
+    {
+      "id": "MATCH_CUBES2",
+      "name": "Cassino",
+      "icon": "casino"
+    },
+    {
+      "id": "MATCH_CUBES3",
+      "name": "Cassino",
+      "icon": "casino"
+    },
+    {
+      "id": "MATCH_CUBES4",
+      "name": "Cassino",
+      "icon": "casino"
+    }
+  ],
   "modules": [
     {
       "id": "MATCH_CUBES",
@@ -17,12 +44,12 @@
     },
     {
       "id": "MATCH_CUBES2",
-      "name": "Match Cubes",
+      "name": "desenv...",
       "disabled": true
     },
     {
       "id": "MATCH_CUBES3",
-      "name": "Match Cubes",
+      "name": "desenv...",
       "disabled": true
     }
   ],
