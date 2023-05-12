@@ -10,13 +10,13 @@
   },
   "menu": [
     {
-      "id": "MATCH_CUBES",
-      "name": "Match Cubes",
+      "id": "CENTRAL",
+      "name": "Todos os jogos",
       "icon": "casino"
     },
     {
-      "id": "MATCH_CUBES1",
-      "name": "Cassino",
+      "id": "MATCH_CUBES",
+      "name": "Match Cubes",
       "icon": "casino"
     },
     {
@@ -31,7 +31,27 @@
     },
     {
       "id": "MATCH_CUBES4",
-      "name": "Cassino",
+      "name": "Conferir aposta",
+      "icon": "casino"
+    },
+    {
+      "id": "MATCH_CUBES5",
+      "name": "Tutoriais",
+      "icon": "tips_and_updates"
+    },
+    {
+      "id": "MATCH_CUBES6",
+      "name": "Suporte",
+      "icon": "support_agent"
+    },
+    {
+      "id": "MATCH_CUBES7",
+      "name": "Perguntas frequentes",
+      "icon": "question_mark"
+    },
+    {
+      "id": "MATCH_CUBES8",
+      "name": "Sobre",
       "icon": "casino"
     }
   ],

@@ -8,24 +8,19 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
-  background-color: #1b242f;
-}
-    
-::-webkit-scrollbar-thumb {
-  background-color: #52585f; 
-  border-radius: 1vh;
+  width: 0px;
+  height: 0px;
 }
 
-body {
-  height: 100vh;
+html, body {
+  height: 100%;
   background-color: #0f1923;
 }
 
 #container {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 progress {
@@ -182,12 +177,11 @@ img.logo {
 }
 
 #header {
-  padding: 0 0 5px 0;
   display: flex;
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 100;
   width: 100%;
-  top: 0;
   border-bottom: 1px solid #323b45;
 }
 
@@ -274,16 +268,14 @@ img.logo {
 }
 
 #cassino {
-  width: 100%;
-  margin: 76px 0 0 0;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: row;
+  flex-grow: 1;
 }
 
 #game {
-  width: 1000px;
   margin: 50px 0 0 0;
   min-height: 500px;
   padding: 10px;
@@ -482,9 +474,10 @@ img.logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .medium {
@@ -525,6 +518,18 @@ img.logo {
   flex: 1 1;
   overflow: hidden auto;
   max-height: 500px;
+}
+
+#modal_container .content::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #1b242f;
+}
+    
+#modal_container .content::-webkit-scrollbar-thumb {
+  background-color: #52585f; 
+  border-radius: 1vh;
 }
 
 #modal_container .footer {
@@ -625,11 +630,80 @@ img.logo {
 }
 
 #footer {
-  background-color: #1b242f;
-  left: 0;
-  right: 0;
-  position: relative;
-  height: 300px;
+  background-color: #0f1923;
+  border-top: 1px solid #323b45;
+  padding: 10px;
+  margin: 0 0 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#footer .line, #footer .line-column {
+  width: 1200px;
+  margin: 50px 0 0 0;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+#footer .line-column .description {
+  width: 100%;
+  padding: 10px;
+  flex: 1;
+  margin: 0 10px 25px 10px;
+  display: flex;
+  flex-direction: column;
+  line-height: 28px;
+}
+
+#footer .line-column .description p {
+  width: 100%;
+  text-align: center;
+  color: #bcbfc7;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#footer .line-column .justify p {
+  text-align: justify;
+}
+
+#footer .line .column {
+  padding: 10px;
+  flex: 1;
+  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  line-height: 28px;
+}
+
+#footer .line-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#footer .line .column a:not(.title) {
+  color: #bcbfc7;
+  font-weight: bold;
+}
+
+#footer .line .column a:hover:not(.title) {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#footer .line .column a:hover:not(.title) {
+  opacity: 0.8;
+}
+
+#footer .line .column .title {
+  font-size: 18px;
+  color: #fff;
+  line-height: 50px;
+  font-weight: bold;
 }
 
 #login {
@@ -683,11 +757,14 @@ img.logo {
 
 #home {
   display: flex;
-  margin: 70px 0 0 0;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
-  min-height: 600px;
+  flex-direction: row;
+  flex-grow: 1;
+  margin: 50px 0 0 0;
+  min-height: 500px;
+  padding: 10px;
+  overflow: hidden;
 }
 
 #home > div {
@@ -717,6 +794,12 @@ img.logo {
   cursor: pointer;
   opacity: 0.9;
   background-color: #0f1923;
+  /* webkit-transform : scale(1.04); */
+  /* -moz-transform    : scale(1.04); */
+  /* -o-transform      : scale(1.04); */
+  transform         : scale(1.04);
+  transition        : all 0.3s;
+  -webkit-transition: all 0.3s;
 }
 
 #home > div .module:active:not(.disabled) {
@@ -738,16 +821,24 @@ img.logo {
 }
 
 #teste {
-  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+#teste2 {
+  display: flex;
+  width: 100%;
+  flex: 1 0;
 }
 
 #menu {
+  max-height: 100vh;
+  position: sticky;
+  top: 76px;
   z-index: 99;
-  position: absolute;
-  left: 0;
-  width: 200px;
+  width: 250px;
   background: #1b242f;
-  height: 100%;
   border-right: 1px solid #323b45;
 }
 

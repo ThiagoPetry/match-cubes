@@ -1,15 +1,8 @@
 import ReactDOM from "react-dom/client";
 
 const openModal = (component) => {
-  const root = ReactDOM.createRoot(
-    document.getElementById("displayModal")
-  );
-
-  const display = document.querySelector("#displayModal");
-
-  if (display && !display?.childNodes?.length) {
-    root.render(component);
-  }
+  const root = ReactDOM.createRoot(document.getElementById("displayModal"));
+  root.render(component);
 }
 
 export { openModal };

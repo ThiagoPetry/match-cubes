@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { closeModal } from "../../hooks/CloseModal.js";
-
 import Modal from "../Modal/Modal.js";
 import Button from "../Button/Button.js";
 
@@ -68,7 +66,6 @@ const Deposit = ({
     <Modal
       size={size}
       title={paymentConfig.title}
-      onClose={() => closeModal()}
     >
       {steps[step]()}
     </Modal>

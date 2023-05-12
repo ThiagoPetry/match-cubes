@@ -74,24 +74,26 @@ const App = () => {
       />
 
       <div id="teste">
-        <Menu
-          module={user.module}
-          onChangeModule={(e) => onChangeModule(e)}
-        />
+        <div id="teste2">
+          <Menu
+            module={user.module}
+            onChangeModule={(e) => onChangeModule(e)}
+          />
 
-        {
-          user.module ?
-            <Cassino
-              balance={balance}
-              progress={progress}
-              onChangeBalance={(e) => onChangeBalance(e)}
-              onChangeProgress={(e) => onChangeProgress(e)}
-            />
-          :
-            <Home
-              onChangeModule={(e) => onChangeModule(e)}
-            />
-        }
+          {
+            user.module ?
+              <Cassino
+                balance={balance}
+                progress={progress}
+                onChangeBalance={(e) => onChangeBalance(e)}
+                onChangeProgress={(e) => onChangeProgress(e)}
+              />
+            :
+              <Home
+                onChangeModule={(e) => onChangeModule(e)}
+              />
+          }
+        </div>
       </div>
 
       <Footer />

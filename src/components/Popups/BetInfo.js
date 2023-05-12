@@ -1,7 +1,5 @@
 import React from "react";
 
-import { closeModal } from "../../hooks/CloseModal.js";
-
 import { maskCurrency } from "../../utils/maskCurrency";
 import { currencyMask } from "../../utils/currencyMask";
 
@@ -18,7 +16,6 @@ const BetInfo = ({
     <Modal
       size={size}
       title={"Informações da Aposta"}
-      onClose={() => closeModal()}
     >
       <div id="bet_information">
         <div className="info">

@@ -36,17 +36,17 @@ const Header = ({
     <div id="header">
       <div>
         <div className="left">
-          {
+          {/* {
             module ?
               <h1 className="logo" onClickCapture={() => onChangeModule("")}>
-                {config.modules.find(item => item.id === module).name}
+                Cassino - {config.modules.find(item => item.id === module).name}
               </h1>
-            :
+            : */}
               <h1 className="logo" onClickCapture={() => onChangeModule("")}>
                 Cassino
               </h1>
-              // <img src={match_cubes} className="logo" onClick={() => onChangeModule("")} />
-          }
+              {/* <img src={match_cubes} className="logo" onClick={() => onChangeModule("")} />
+          } */}
         </div>
         <div className="right">
           <div className="level" onClick={() => openModal(levelModal)}>

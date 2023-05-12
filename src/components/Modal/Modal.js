@@ -1,48 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Button from "../Button/Button";
 
 const Modal = ({
   size,
   title,
-  onClose,
   children,
 }) => {
-  // const modal = document.querySelector("#modal");
+  const [show, setShow] = useState(true);
 
-  // if (modal) {
-  //   modal.addEventListener("keydown", (e) => {
-  //     console.log(e);
-  //     if (e.key == "Escape") {
-  //       onClose();
-  //     }
-  //   });
-  // }
-
-  const a = (e) => {
-    console.log(e.keyCode);
+  const onClose = () => {
+    setShow(false);
   }
 
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (show) {
+      document.addEventListener("keydown", handleEscapeKey);
+    } else {
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [show, onClose]);
+
   return (
-    <div id="modal" onKeyUpCapture={(e) => a(e)}>
-      <div id="modal_container" className={size}>
-        <div className="header">
-          <div className="title">
-            {title && title}
+    <>
+      {show &&
+        <div id="modal">
+          <div id="modal_container" className={size}>
+            <div className="header">
+              <div className="title">
+                {title && title}
+              </div>
+              <Button
+                iconRight
+                icon={"close"}
+                onClick={() => onClose()}
+                className={"close material-symbols-outlined"}
+              />
+            </div>
+            <div className="content">
+              {children}
+            </div>
+            <div className="footer"></div>
           </div>
-          <Button
-            iconRight
-            icon={"close"}
-            onClick={() => onClose()}
-            className={"close material-symbols-outlined"}
-          />
         </div>
-        <div className="content">
-          {children}
-        </div>
-        <div className="footer"></div>
-      </div>
-    </div>
+      }
+    </>
   );
 }
 
